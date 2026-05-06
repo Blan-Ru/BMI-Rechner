@@ -5,17 +5,17 @@ import cgi
 
 form = cgi.FieldStorage()
 name = form.getvalue("name", "Unknown")
-weight = float(form.getvalue("weight", 0))
-height = float(form.getvalue("height", 1)) / 100 # cm to m
+Gewicht = float(form.getvalue("Gewicht", 0))
+Größe = float(form.getvalue("Größe", 1)) / 100 # cm to m
 
 bmi = weight / (height ** 2)
 
 if bmi < 18.5:
-category = "Underweight"
+category = "Untergewicht"
 elif bmi < 25:
-category = "Normal weight"
+category = "Normalgewicht"
 elif bmi < 30:
-category = "Overweight"
+category = "Übergewicht"
 else:
 category = "Obese"
 
