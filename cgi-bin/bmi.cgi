@@ -3,35 +3,44 @@
 print('Content-type: text/html \n')
 
 import cgi
+import cgitb
+cgitb.enable()
 
 form = cgi.FieldStorage()
 name = form.getvalue("name", "Unknown")
-Gewicht = float(form.getvalue("Gewicht", 0))
-Größe = float(form.getvalue("Größe", 1)) / 100 # cm to m
+gewicht = float(form.getvalue("Gewicht", 0))
+groesse = float(form.getvalue("Groesse", 1)) / 100 # cm to m
 
-bmi = weight / (height ** 2)
+bmi = gewicht / (groesse ** 2)
 
 if bmi < 18.5:
-category = "Untergewicht"
-elif bmi < 25:
-category = "Normalgewicht"
-elif bmi < 30:
-category = "Übergewicht"
-else:
-category = "Obese"
 
-print(f"""<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>BMI Ergebnisse</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<h1>Ergebnisse {name}</h1>
-<p>Dein BMI: <strong>{bmi:.1f}</strong></p>
-<p>Kategorie: <strong>{category}</strong></p>
-<a href="../index.html">← Back</a><br>
-<a href="https://github.com/Blun-Ru/BMI-Rechner">GitHub Repo</a>
-</body>
-</html>""")
+       kategorie = "Untergewicht"
+
+elif bmi < 25:
+
+       kategorie = "Normalgewicht"
+
+elif bmi < 30:
+
+      kategorie = "Uebergewicht"
+
+else:
+
+     kategorie = " Stark Uebergewicht"
+
+print("<!DOCTYPE html>")
+print("<html lang='de'>")
+print("<head>")
+print("<meta charset='UTF-8'>")
+print("<title>BMI Ergebnis</title>")
+print("<link rel='stylesheet' href='../style.css'>")
+print("</head>")
+print("<body>")
+print("<h1>Ergebnis fuer " + name + "</h1>")
+print("<p>Ihr BMI: <strong>" + str(round(bmi,1)) + "</strong></p>")
+print("<p>Kategorie: <strong>" + kategorie + "</strong></p>")
+print("<a href='../index.html'>Zurueck</a><br>")
+print("<a href='https://github.com/Blan-Ru/BMI-Rechner'>GitHub Repo</a>")
+print("</body>")
+print("</html>")
