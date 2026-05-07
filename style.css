@@ -2,7 +2,7 @@ body {
 font-family: Arial, sans-serif;
 max-width: 500px;
 margin: 50px auto;
-background-color: #f0f0f0;
+background-color: var(--bg);
 }
 
 h1 {
@@ -18,7 +18,23 @@ button {
 margin-top: 15px;
 padding: 10px 20px;
 background-color: #4CAF50;
+transition: background-color 0.3s;
 color: white;
 border: none;
 cursor: pointer;
+}
+
+button:hover { background-color: #45a049; }
+button:active { background-color: #e74c3c; }
+
+input:focus{
+
+	border-color: #4CAF50;
+}
+
+input:valid { border-color: #4CAF50;} 
+input:invalid { border-color: #e74c3c; }
+
+button {
+	background-color: color-mix(in srgb, #4CAF50 80%, white );
 }
