@@ -33,7 +33,7 @@ input:focus{
 }
 
 input:valid { border-color: #4CAF50;} 
- }
+input:invalid { background-color: #e74c3c } 
 
 button {
 	background-color: color-mix(in srgb, #4CAF50 80%, white );
